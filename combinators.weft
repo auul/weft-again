@@ -1,0 +1,29 @@
+#!/home/alice/Projects/weft/weft
+cake:
+	unit:
+		[] cons
+	{b a -- a b b a} cons
+	{a b ba -- ba a b} unit cat
+k:
+	{b a -- a} eval
+
+zap: [] k
+dip: cake k
+cons: cake [] k
+unit: [] cons
+swap: unit cake k
+i: [[]] dip k
+dup: [] cake dip dip
+w: [dup] dip i
+b: [cons] dip i
+run: dup dip
+rep: run i
+m: dup i
+z: zap i
+cat: cons
+nip: swap zap
+sap: swap dip i
+take: swap cake nip
+tack: cake nip
+
+[1] [2] take
